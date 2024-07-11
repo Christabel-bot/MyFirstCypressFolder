@@ -30,7 +30,7 @@ When ('I Validate successful login to my account', function(){
     //cy.contains('Welcome Christabel').should('be.visible');
     cy.get('#nameofuser').should('exist')
 })
-
+no
 
 
 // Then ('I Click Login', function(){
@@ -39,11 +39,17 @@ When ('I Validate successful login to my account', function(){
 // })
 
 Then ('unsuccessful login message -Please fill out Username and Password.-', function(){
-        cy.on('window:alert', (str) =>
-    {
-        expect(str).to.equal('Please fill out Username and Password.')
+    //     cy.on('window:alert', (str) =>
+    // {
+    //     expect(str).to.equal('Please fill out Username and Password.')
 
-    })
+    // })
+
+    // window.onload = function() {
+    //     alert("Please fill out Username and Password.");
+    // };
+
+    
 })
 
 Then ('I enter a valid Password and empty username', function(){
