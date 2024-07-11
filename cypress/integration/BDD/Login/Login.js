@@ -30,7 +30,7 @@ When ('I Validate successful login to my account', function(){
     //cy.contains('Welcome Christabel').should('be.visible');
     cy.get('#nameofuser').should('exist')
 })
-no
+
 
 
 // Then ('I Click Login', function(){
