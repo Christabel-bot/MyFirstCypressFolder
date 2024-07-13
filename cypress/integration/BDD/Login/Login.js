@@ -39,17 +39,12 @@ When ('I Validate successful login to my account', function(){
 // })
 
 Then ('unsuccessful login message -Please fill out Username and Password.-', function(){
-    //     cy.on('window:alert', (str) =>
-    // {
-    //     expect(str).to.equal('Please fill out Username and Password.')
+        cy.on('window:alert', (str) =>
+    {
+        expect(str).to.equal('Please fill out Username and Password.')
 
-    // })
+    })
 
-    // window.onload = function() {
-    //     alert("Please fill out Username and Password.");
-    // };
-
-    
 })
 
 Then ('I enter a valid Password and empty username', function(){
@@ -85,3 +80,4 @@ Then ('unsuccessful login message -User does not exist', function(){
          expect(str).to.equal('User does not exist.')
 })
 })
+ 

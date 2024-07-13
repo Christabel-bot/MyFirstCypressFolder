@@ -33,7 +33,7 @@ Cypress.Commands.add('selectlogin',() => {
     cy.get('#login2').click()
 })
 
-Cypress.Commands.add('validusername', (username) => {cd
+Cypress.Commands.add('validusername', (username) => {
     cy.get('#loginusername').type(username)
 })
 
