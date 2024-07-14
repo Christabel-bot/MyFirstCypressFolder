@@ -1,31 +1,27 @@
-name: Cypress tests​
+name: Cypress tests
 
-on: [push]​
+on: [push]
 
-jobs:​
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
 
-  cypress-run:​
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    runs-on: ubuntu-latest​
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20.13.1'
 
-    steps:​
+      - name: Install project dependencies
+        run: npm install
 
-    - name: Checkout repository​
+      - name: Install Cypress
+        run: npm install cypress --save-dev
 
-      uses: actions/checkout@v2​
-
-    - name: Set up Node.js​
-
-      uses: actions/setup-node@v2​
-
-      with:​
-
-        node-version: 'v20.14.0'​
-
-    - name: Install project dependencies​
-
-      run: npm install​
-​
-- name: Run Cypress tests run:​
-
- npx cypress run
+     - name: Run Cypress tests
+       env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+       run: npx cypress run --config-file=cypress.config.js --record true --key ${{ secrets.CYPRESS_RECORD_KEY }}
