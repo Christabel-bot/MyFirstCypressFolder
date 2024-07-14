@@ -3,6 +3,11 @@ name: Cypress tests
 on: [push]
 
 jobs:
+  my-job:
+    concurrency:
+      group: ${{ github.head_ref }}-init
+      cancel-in-progress: true
+      
   cypress-run:
     runs-on: ubuntu-latest
 
@@ -19,10 +24,8 @@ jobs:
         run: npm install
 
       - name: Install Cypress
-        run: npm install cypress --save-dev
+        run: npm install cypress
 
       - name: Run Cypress tests
-        env:
-              CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-        run: npx cypress run --browser chrome --config-file=cypress.config.js --record true --key ${{ secrets.CYPRESS_RECORD_KEY }}
+          run: npx cypress run
         
