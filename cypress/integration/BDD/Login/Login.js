@@ -80,4 +80,5 @@ Then ('unsuccessful login message -User does not exist', function(){
          expect(str).to.equal('User does not exist.')
 })
 })
+
  
