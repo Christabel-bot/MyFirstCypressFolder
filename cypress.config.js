@@ -10,7 +10,8 @@ return config;
 }
 
 module.exports = defineConfig({
-e2e: {
+    projectId: "dr31fh",
+        e2e: {
 setupNodeEvents,
 specPattern: 'cypress/integration/BDD/*.feature',
 },
